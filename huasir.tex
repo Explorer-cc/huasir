@@ -1,0 +1,29 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage[fontset=fandol]{ctex}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usetikzlibrary{positioning,fit}
+\begin{document}
+
+% \fbox{\adjustbox{scale={1}{.5}}{艹}}
+
+% \fbox{\adjustbox{scale={.5}{1}}{化}}
+
+\newcommand*{\huasir}{%
+\hspace{-.2em}\parbox[c][][c]{.9\ccwd}{\linespread{0.3}\selectfont\centering%
+    \adjustbox{scale={.5}{.4}}{\textsf{SI}}\\[-.5pt]
+    \adjustbox{scale={.5}{.4}}{\textsf{R}}\\[-.5pt]
+    \adjustbox{scale={.6}{.5}}{\textbf{艹}}%
+}\hspace{-.15em}\adjustbox{scale={.5}{1}}{\textbf{化}}}
+
+\begin{tikzpicture}
+    \node[font=\bfseries,scale=2] (O) {林\enspace 间\enspace\huasir};
+    \node (A) [below=.1cm of O,font=\sffamily] {Lin Jianhua Sir};
+    \node (B) [below=.2cm of A] {\LaTeX{}特级督察};
+    \node[align=center,scale=.5,font=\linespread{.8}\selectfont] (C) [below=.2cm of B] {\uppercase{SUPER-SENIOR\\ INSPECTOR OF \LaTeX{}}};
+    \node[fit=(O)(A)(B)(C),inner sep=0pt,outer sep=0pt] (name) {};
+    \node (fig) [right=.1cm of name,yshift=-3pt] {\includegraphics[scale=.26]{moew.jpg}};
+    \node[fit=(name)(fig),inner sep=0pt,outer sep=0pt,draw,line width=1pt] {};
+\end{tikzpicture}
+
+\end{document}
